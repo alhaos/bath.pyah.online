@@ -10,14 +10,14 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18.x]
+        node-version: [20.x]
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@latest
+      uses: actions/checkout@v5
 
     - name: Setup Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@latest
+      uses: actions/setup-node@v5
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
@@ -29,12 +29,15 @@ jobs:
       run: npm run build
 
     - name: Deploy to CentOS server
-      uses: appleboy/scp-action@latest
+      uses: mdallasanta/ssh-scp-deploy@{version}
       with:
-        host: ${{ secrets.SERVER_HOST }}
-        username: ${{ secrets.SERVER_USER }}
-        password: ${{ secrets.SERVER_PASSWORD }}
-        port: ${{ secrets.SERVER_PORT }}
-        source: "build/*"
-        target: "/var/www/bath.pyah.online"
-        strip_components: 1
+        local: 'build/*'                                                  # Local file path - REQUIRED false - DEFAULT ./
+        remote: '/var/www/bath.pyah.online'                                                 # Remote file path - REQUIRED false - DEFAULT ~/
+        host: ${{secrets.SERVER_HOST }}                          # Remote server address - REQUIRED true
+        port: ${{secrets.SERVER_PORT}}                                      # Remote server port - REQUIRED false - DEFAULT 22
+        user: ${{secrets.SERVER_USER}}                                      # Remote server user - REQUIRED true
+        key: ${{secrets.SSH_PRIVATE_KEY}}                                        # Remote server private key - REQUIRED at least one of "password" or "key"
+        pre_upload: echo "This will be executed before the upload!"  # Command to run via ssh before scp upload - REQUIRED false
+        post_upload: echo "This will be executed after the upload!"  # Command to run via ssh after scp upload - REQUIRED false
+        ssh_options: -o StrictHostKeyChecking=no                     # A set of ssh_option separated by -o - REQUIRED false - DEFAULT -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null
+        scp_options: -v
