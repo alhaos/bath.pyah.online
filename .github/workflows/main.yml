@@ -14,7 +14,7 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v5
+      uses: 'actions/checkout@v5'
 
     - name: Setup Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v5
@@ -31,13 +31,11 @@ jobs:
     - name: Deploy to CentOS server
       uses: mdallasanta/ssh-scp-deploy@v1.2.0
       with:
-        local: 'build/*'                                                  # Local file path - REQUIRED false - DEFAULT ./
-        remote: '/var/www/bath.pyah.online'                                                 # Remote file path - REQUIRED false - DEFAULT ~/
-        host: ${{secrets.SERVER_HOST }}                          # Remote server address - REQUIRED true
-        port: ${{secrets.SERVER_PORT}}                                      # Remote server port - REQUIRED false - DEFAULT 22
-        user: ${{secrets.SERVER_USER}}                                      # Remote server user - REQUIRED true
-        key: ${{secrets.SSH_PRIVATE_KEY}}                                        # Remote server private key - REQUIRED at least one of "password" or "key"
-        pre_upload: echo "This will be executed before the upload!"  # Command to run via ssh before scp upload - REQUIRED false
-        post_upload: echo "This will be executed after the upload!"  # Command to run via ssh after scp upload - REQUIRED false
-        ssh_options: -o StrictHostKeyChecking=no                     # A set of ssh_option separated by -o - REQUIRED false - DEFAULT -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null
+        local: 'dist/*'
+        remote: '/var/www/bath.pyah.online'
+        host: ${{secrets.SERVER_HOST }}
+        port: ${{secrets.SERVER_PORT}}
+        user: ${{secrets.SERVER_USER}}
+        key: ${{secrets.SSH_PRIVATE_KEY}}
+        ssh_options: -o StrictHostKeyChecking=no
         scp_options: -v
