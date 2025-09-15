@@ -31,7 +31,7 @@ jobs:
     - name: Deploy to CentOS server
       uses: mdallasanta/ssh-scp-deploy@v1.2.0
       with:
-        local: 'build/*'                                                  # Local file path - REQUIRED false - DEFAULT ./
+        local: 'dist/*'                                                  # Local file path - REQUIRED false - DEFAULT ./
         remote: '/var/www/bath.pyah.online'                                                 # Remote file path - REQUIRED false - DEFAULT ~/
         host: ${{secrets.SERVER_HOST }}                          # Remote server address - REQUIRED true
         port: ${{secrets.SERVER_PORT}}                                      # Remote server port - REQUIRED false - DEFAULT 22
