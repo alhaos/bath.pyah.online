@@ -29,7 +29,7 @@ jobs:
       run: npm run build
 
     - name: Deploy to CentOS server
-      uses: mdallasanta/ssh-scp-deploy@{version}
+      uses: mdallasanta/ssh-scp-deploy@v1.2.0
       with:
         local: 'build/*'                                                  # Local file path - REQUIRED false - DEFAULT ./
         remote: '/var/www/bath.pyah.online'                                                 # Remote file path - REQUIRED false - DEFAULT ~/
