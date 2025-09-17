@@ -9,28 +9,27 @@ export default defineConfig({
         VitePWA({
             registerType: 'autoUpdate',
             manifest: {
-                name: 'Мое приложение',
-                short_name: 'MyApp',
-                description: 'Мое крутое приложение',
+                name: 'Баня Пыть-Ях',
+                short_name: 'bath.pyah.online',
+                description: 'bath.pyah.online',
                 theme_color: '#000000',
                 background_color: '#ffffff',
-                display: 'standalone', // ← это для полноэкранного режима!
+                display: 'fullscreen',
                 icons: [
                     {
-                        src: 'pwa-192x192.png',
+                        src: 'logo.svg',
                         sizes: '192x192',
-                        type: 'image/png'
+                        type: 'image/svg+xml'
                     },
                     {
-                        src: 'pwa-512x512.png',
+                        src: 'logo.svg',
                         sizes: '512x512',
-                        type: 'image/png'
+                        type: 'image/svg+xml'
                     }
                 ]
             },
-            // Отключаем генерацию service worker если не нужен
             workbox: {
-                globPatterns: [] // пустой массив = не кэшируем ничего
+                globPatterns: []
             }
         })
     ]
