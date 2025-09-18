@@ -14,7 +14,7 @@ export default defineConfig({
                 description: 'bath.pyah.online',
                 theme_color: '#000000',
                 background_color: '#ffffff',
-                display: 'fullscreen',
+                display: 'standalone',
                 icons: [
                     {
                         src: 'logo.svg',

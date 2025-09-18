@@ -1,0 +1,8 @@
+.ScheduleSign {
+    background-color: #213547;
+}
+
+.ScheduleSign > table {
+    width: 90vw;
+    color: green;
+}
