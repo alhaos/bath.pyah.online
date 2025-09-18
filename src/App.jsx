@@ -7,11 +7,11 @@ import Home from "./Pages/Home/Home.jsx";
 function App() {
     return (
         <div className="app">
-            <BrowserRouter basename="/">
+            <BrowserRouter>
                 <Routes>
                     <Route index element={<UnderConstruction/>}/>
-                    <Route path={"/home"} element={<Home/>}/>
-                    <Route path={"/admin-panel"} element={<AdminPanel/>}/>
+                    <Route path={"home"} element={<Home/>}/>
+                    <Route path={"admin-panel"} element={<AdminPanel/>}/>
                 </Routes>
             </BrowserRouter>
         </div>
