@@ -12,6 +12,7 @@ export default defineConfig({
                 name: 'Баня Пыть-Ях',
                 short_name: 'bath.pyah.online',
                 description: 'bath.pyah.online',
+                start_url: '/',
                 theme_color: '#000000',
                 background_color: '#ffffff',
                 display: 'standalone',
