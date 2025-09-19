@@ -19,12 +19,12 @@ export default function ScheduleSign() {
                 </tr>
                 <tr>
                     <td>ЧТ</td>
-                    <td className={styles.WorkDay}>10:00 - 20:00</td>
+                    <td className={styles.WorkDay}>12:00 - 20:00</td>
                     <td className={styles.WorkDay}>Женский</td>
                 </tr>
                 <tr>
                     <td>ПТ</td>
-                    <td className={styles.WorkDay}>10:00 - 20:00</td>
+                    <td className={styles.WorkDay}>12:00 - 20:00</td>
                     <td className={styles.WorkDay}>Мужской</td>
                 </tr>
                 <tr>

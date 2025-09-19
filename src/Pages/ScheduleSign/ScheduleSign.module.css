@@ -15,5 +15,5 @@ table {
 }
 
 td {
-    border-bottom: solid thin var(--color);
+    border-bottom: solid thin var(--lineColor);
 }
