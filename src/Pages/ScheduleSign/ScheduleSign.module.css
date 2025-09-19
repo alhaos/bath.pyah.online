@@ -15,5 +15,5 @@ table {
 }
 
 td {
-    border-bottom: solid thin darkgoldenrod;
+    border-bottom: solid thin var(--color);
 }
