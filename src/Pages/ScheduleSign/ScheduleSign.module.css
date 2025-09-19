@@ -1,8 +1,19 @@
-.ScheduleSign {
-    background-color: #213547;
-}
-
 .ScheduleSign > table {
     width: 90vw;
-    color: green;
+}
+
+.DayOff {
+    text-align: center;
+}
+
+.WorkDay {
+    text-align: center;
+}
+
+table {
+    max-width: 350px;
+}
+
+td {
+    border-bottom: solid thin darkgoldenrod;
 }
