@@ -17,8 +17,8 @@
 
 @media (prefers-color-scheme: light) {
     :root {
-        color: #213547;
-        background-color: lightslategrey;
-        --color: #213547;
+        color: #251002;
+        background-color: wheat;
+        --color: #251002;
     }
 }

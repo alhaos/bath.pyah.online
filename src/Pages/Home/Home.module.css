@@ -4,3 +4,11 @@
     justify-content: flex-start;
     align-items: center;
 }
+
+.Header {
+    margin-bottom: 0;
+}
+
+.Caption {
+    margin-top: 0;
+}
