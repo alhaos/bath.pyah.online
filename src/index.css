@@ -22,7 +22,7 @@
 
 @media (prefers-color-scheme: light) {
     :root {
-        --color-foreground: #afb1b6;
+        --color-foreground: #251002;
         --color-line: #251002;
         --color-bc: wheat;
     }
