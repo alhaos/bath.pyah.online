@@ -19,7 +19,7 @@ export default function Home() {
                 </div>
                 <div className={styles.InfoUpdate}>
                     <div>Информация обновлена</div>
-                    <div>19 сентября 2025</div>
+                    <div>24 сентября 2025</div>
                 </div>
             </div>
         </div>
