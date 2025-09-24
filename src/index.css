@@ -1,25 +1,29 @@
 :root {
+
+    /* colors */
+    --color-bc: #151515;
+    --color-foreground: #afb1b6;
+    --color-line: #afb1b6;
+
     /*font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;*/
     font-family: "Roboto Slab", Georgia, "Times New Roman", Times, serif;
     padding: 0;
     margin: 0;
 
     color-scheme: light dark;
-    color: orange;
-    background-color: #242424;
+    color: var(--color-foreground);
+    background-color: var(--color-bc);
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-
-    --lineColor: darkgoldenrod;
 }
 
 @media (prefers-color-scheme: light) {
     :root {
-        color: #251002;
-        background-color: wheat;
-        --lineColor: #251002;
+        --color-foreground: #afb1b6;
+        --color-line: #251002;
+        --color-bc: wheat;
     }
 }

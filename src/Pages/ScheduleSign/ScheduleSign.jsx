@@ -4,40 +4,11 @@ export default function ScheduleSign() {
     return (
         <div className={styles.ScheduleSign}>
             <table>
-                <tbody>
-                <tr>
-                    <td>ПН</td>
-                    <td className={styles.DayOff} colSpan={2}>Выходной</td>
-                </tr>
-                <tr>
-                    <td>ВТ</td>
-                    <td className={styles.DayOff} colSpan={2}>Выходной</td>
-                </tr>
-                <tr>
-                    <td>СР</td>
-                    <td className={styles.DayOff} colSpan={2}>Выходной</td>
-                </tr>
-                <tr>
-                    <td>ЧТ</td>
-                    <td className={styles.WorkDay}>12:00 - 20:00</td>
-                    <td className={styles.WorkDay}>Женский</td>
-                </tr>
-                <tr>
-                    <td>ПТ</td>
-                    <td className={styles.WorkDay}>12:00 - 20:00</td>
-                    <td className={styles.WorkDay}>Мужской</td>
-                </tr>
-                <tr>
-                    <td>СБ</td>
-                    <td className={styles.WorkDay}>10:00 - 20:00</td>
-                    <td className={styles.WorkDay}>Женский</td>
-                </tr>
-                <tr>
-                    <td>ВС</td>
-                    <td className={styles.WorkDay}>10:00 - 20:00</td>
-                    <td className={styles.WorkDay}>Мужской</td>
-                </tr>
-                </tbody>
+                <p>24.09.2025 с 16.00 до 19.00 (мужской день)</p>
+                <p>25.09.2025 с 12.00 до 20-00 (мужской и женский день)</p>
+                <p>26.09.2025 с 12:00 до 20-00 (мужской и женский день)</p>
+                <p>27.09.2025 с 10:00 до 20-00 (мужской и женский день)</p>
+                <p>28.09.2025 с 10:00 до 20-00 (мужской и женский день)</p>
             </table>
         </div>
     )
