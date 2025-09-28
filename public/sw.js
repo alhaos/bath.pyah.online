@@ -1,30 +1,20 @@
-self.addEventListener('install', () => {
-    self.skipWaiting(); // Принудительная активация
-});
+async function networkFirst(request) {
+    try {
+        const networkResponse = await fetch(request);
+        if (networkResponse.ok) {
+            const cache = await caches.open("MyCache_1");
+            cache.put(request, networkResponse.clone());
+        }
+        return networkResponse;
+    } catch (error) {
+        const cachedResponse = await caches.match(request);
+        return cachedResponse || Response.error();
+    }
+}
 
-self.addEventListener('activate', event => {
-    event.waitUntil(
-        caches.keys().then(cacheNames => {
-            return Promise.all(
-                cacheNames.map(cacheName => {
-                    return caches.delete(cacheName);
-                })
-            );
-        }).then(() => self.clients.claim())
-    );
-});
-
-self.addEventListener('fetch', event => {
-    if (event.request.url.includes('/')) {
-        event.respondWith(
-            fetch(event.request)
-                .then(response => {
-                    const responseClone = response.clone();
-                    caches.open('dynamic-cache')
-                        .then(cache => cache.put(event.request, responseClone));
-                    return response;
-                })
-                .catch(() => caches.match(event.request))
-        );
+self.addEventListener("fetch", (event) => {
+    const url = new URL(event.request.url);
+    if (url.pathname.match(/.*/)) {
+        event.respondWith(networkFirst(event.request));
     }
 });
