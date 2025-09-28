@@ -8,6 +8,7 @@ async function networkFirst(request) {
         return networkResponse;
     } catch (error) {
         const cachedResponse = await caches.match(request);
+        console.log(error)
         return cachedResponse || Response.error();
     }
 }
