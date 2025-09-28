@@ -13,3 +13,18 @@ self.addEventListener('activate', event => {
         }).then(() => self.clients.claim())
     );
 });
+
+self.addEventListener('fetch', event => {
+    if (event.request.url.includes('/')) {
+        event.respondWith(
+            fetch(event.request)
+                .then(response => {
+                    const responseClone = response.clone();
+                    caches.open('dynamic-cache')
+                        .then(cache => cache.put(event.request, responseClone));
+                    return response;
+                })
+                .catch(() => caches.match(event.request))
+        );
+    }
+});
