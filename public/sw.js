@@ -14,8 +14,5 @@ async function networkFirst(request) {
 }
 
 self.addEventListener("fetch", (event) => {
-    const url = new URL(event.request.url);
-    if (url.pathname.match(/.*/)) {
-        event.respondWith(networkFirst(event.request));
-    }
+    event.respondWith(networkFirst(event.request));
 });
