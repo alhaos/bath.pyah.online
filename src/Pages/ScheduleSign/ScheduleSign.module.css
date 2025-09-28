@@ -1,28 +1,13 @@
 .ScheduleSign {
     width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
 }
 
-.DayOff {
-    text-align: center;
-}
-
-.WorkDay {
-    text-align: center;
-}
-
-table {
-    max-width: 350px;
-}
-
-td {
-    border-bottom: solid thin var(--color-line);
-}
-
-.Row {
-    margin-top: 5px;
-    font-size: small;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.Data {
+    justify-self: end;
+    align-self: end;
+    text-align: right;
     width: 100%;
 }

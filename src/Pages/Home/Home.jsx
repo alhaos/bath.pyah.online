@@ -6,7 +6,7 @@ export default function Home() {
         <div className={styles.Home}>
             <h1 className={styles.Header}>БАНЯ</h1>
             <h3 className={styles.Caption}>РЕЖИМ РАБОТЫ</h3>
-            <div className={styles.Info}>Работают оба зала</div>
+            <div className={styles.Info1}>Работают оба зала</div>
             <ScheduleSign/>
             <div className={styles.Info}>
 
