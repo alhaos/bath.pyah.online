@@ -7,7 +7,7 @@ self.addEventListener('install', (event) => {
 });
 
 self.addEventListener('activate', (event) => {
-    alert("test message")
+    alert("test message");
     event.waitUntil(
         caches.keys().then(cacheNames => {
             console.log('🗑️ Deleting old caches:', cacheNames);
