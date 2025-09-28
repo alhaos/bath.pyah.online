@@ -1,5 +1,5 @@
-.ScheduleSign > table {
-    width: 90vw;
+.ScheduleSign {
+    width: 100%;
 }
 
 .DayOff {
@@ -16,4 +16,13 @@ table {
 
 td {
     border-bottom: solid thin var(--color-line);
+}
+
+.Row {
+    margin-top: 5px;
+    font-size: small;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
