@@ -6,8 +6,10 @@ export default function Home() {
         <div className={styles.Home}>
             <h1 className={styles.Header}>БАНЯ</h1>
             <h3 className={styles.Caption}>РЕЖИМ РАБОТЫ</h3>
+            <div className={styles.Info}>Работают оба зала</div>
             <ScheduleSign/>
             <div className={styles.Info}>
+
                 <div className={styles.PhoneHeader}>Телефоны:</div>
                 <div className={styles.Phone}>
                     <div>Баня</div>
@@ -19,7 +21,7 @@ export default function Home() {
                 </div>
                 <div className={styles.InfoUpdate}>
                     <div>Информация обновлена</div>
-                    <div>24 сентября 2025</div>
+                    <div>28 сентября 2025</div>
                 </div>
             </div>
         </div>
