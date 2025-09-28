@@ -1,29 +1,35 @@
-// sw.js - ОБНОВЛЕННАЯ ВЕРСИЯ
-const CACHE_VERSION = 'v2.0'; // МЕНЯЙ ПРИ КАЖДОМ ОБНОВЛЕНИИ!
-
+// sw-nuclear.js
 self.addEventListener('install', (event) => {
-    self.skipWaiting(); // Принудительная активация
-    console.log('New SW installing...');
+    self.skipWaiting();
+    // Не кэшируем ничего при установке
 });
 
 self.addEventListener('activate', (event) => {
     event.waitUntil(
         caches.keys().then(cacheNames => {
             return Promise.all(
-                cacheNames.map(cacheName => {
-                    // Удаляем ВСЕ старые кэши
-                    console.log('Deleting cache:', cacheName);
-                    return caches.delete(cacheName);
-                })
+                cacheNames.map(cacheName => caches.delete(cacheName))
             );
-        }).then(() => {
-            console.log('New SW activated, caches cleared');
-            return self.clients.claim(); // Принудительно берем управление
-        })
+        }).then(() => self.clients.claim())
     );
 });
 
-// Network Only - БЕЗ КЭШИРОВАНИЯ
-self.addEventListener("fetch", (event) => {
-    event.respondWith(fetch(event.request));
+self.addEventListener('fetch', (event) => {
+    // ВСЕГДА загружаем из сети, никогда из кэша
+    event.respondWith(
+        fetch(event.request)
+            .catch(error => {
+                // Только если офлайн - показываем простую страницу
+                return new Response(`
+                    <html>
+                        <body>
+                            <h1>Офлайн</h1>
+                            <p>Нет соединения с интернетом</p>
+                        </body>
+                    </html>
+                `, {
+                    headers: {'Content-Type': 'text/html'}
+                });
+            })
+    );
 });
